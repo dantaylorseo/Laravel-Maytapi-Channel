@@ -24,7 +24,7 @@ class MaytapiChannel
         }
 
         // @phpstan-ignore method.notFound
-        $message = $notification->toWhatsApp($notifiable);
+        $message = $notification->toMail($notifiable);
         $this->service->send($group, $phoneNumber ?? null, $message);
     }
 }
