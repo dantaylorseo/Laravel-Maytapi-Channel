@@ -36,7 +36,7 @@ class MaytapiService
             'type' => $messageData['link'] ? 'link' : 'text',
             'message' => $messageData['link'] ?? $messageData['text'],
             'text' => $messageData['link'] ? $messageData['text'] : null,
-            "skip_filter" => true
+            'skip_filter' => true,
         ]);
 
         Log::info('Response: '.$response->body());
