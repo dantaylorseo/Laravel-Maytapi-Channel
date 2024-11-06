@@ -26,8 +26,8 @@ class MaytapiChannelServiceProvider extends PackageServiceProvider
             ->give(config('maytapi-channel.api_key'));
 
         $this->app->when(MaytapiService::class)
-            ->needs('$packageId')
-            ->give(config('maytapi-channel.package_id'));
+            ->needs('$productId')
+            ->give(config('maytapi-channel.productId'));
 
         $this->app->when(MaytapiService::class)
             ->needs('$phoneId')
