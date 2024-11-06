@@ -28,7 +28,7 @@ class MaytapiService
         Log::info('Sending WhatsApp message: '.$message);
         $response = Http::withHeaders([
             'x-maytapi-key' => $this->apiKey,
-        ])->post("https://api.maytapi.com/api/{$this->productId}/[$this->phoneId]/sendMessage", [
+        ])->post("https://api.maytapi.com/api/{$this->productId}/{$this->phoneId}/sendMessage", [
             'to_number' => "{$this->groupId}",
             'type' => 'text',
             'message' => $message,
