@@ -21,7 +21,6 @@ class MaytapiChannel
     {
         // @phpstan-ignore method.notFound
         $message = $notification->toWhatsApp($notifiable);
-        Log::info('Sending WhatsApp message: '.$message);
         $this->service->send($message);
     }
 }
