@@ -27,7 +27,7 @@ class MaytapiChannelServiceProvider extends PackageServiceProvider
 
         $this->app->when(MaytapiService::class)
             ->needs('$productId')
-            ->give(config('maytapi-channel.productId'));
+            ->give(config('maytapi-channel.product_id'));
 
         $this->app->when(MaytapiService::class)
             ->needs('$phoneId')
