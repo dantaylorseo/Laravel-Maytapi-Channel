@@ -23,12 +23,12 @@ class MaytapiService
         $this->groupId = $groupId;
     }
 
-    public function send(string $message): void
+    public function send(bool $sendToGroup, string $phoneNumber, string $message): void
     {
         $response = Http::withHeaders([
             'x-maytapi-key' => $this->apiKey,
         ])->post("https://api.maytapi.com/api/{$this->productId}/{$this->phoneId}/sendMessage", [
-            'to_number' => "{$this->groupId}",
+            'to_number' => $sendToGroup ? $this->groupId : $phoneNumber,
             'type' => 'text',
             'message' => $message,
         ]);

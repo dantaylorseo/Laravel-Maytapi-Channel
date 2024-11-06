@@ -18,8 +18,13 @@ class MaytapiChannel
      */
     public function send(object $notifiable, Notification $notification): void
     {
+        $group = config('maytapi-channel.send_to_channel');
+        if (! $group && ! $phoneNumber = $notifiable->routeNotificationFor('maytapi', $notification)) {
+            return;
+        }
+
         // @phpstan-ignore method.notFound
         $message = $notification->toWhatsApp($notifiable);
-        $this->service->send($message);
+        $this->service->send($group, $phoneNumber ?? null, $message);
     }
 }
