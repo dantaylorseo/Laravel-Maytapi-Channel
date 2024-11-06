@@ -33,8 +33,8 @@ class MaytapiService
         ])->post("https://api.maytapi.com/api/{$this->productId}/{$this->phoneId}/sendMessage", [
             'to_number' => $sendToGroup ? $this->groupId : $phoneNumber,
             'type' => $messageData['link'] ? 'link' : 'text',
-            'link' => $messageData['link'] ?? null,
-            'message' => $messageData['text'],
+            'message' => $messageData['link'] ?? $messageData['text'],
+            'text' => $messageData['link'] ? $messageData['text'] : null,
         ]);
 
         Log::info('Response: '.$response->body());
