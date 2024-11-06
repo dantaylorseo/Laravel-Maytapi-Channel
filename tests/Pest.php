@@ -1,5 +1,5 @@
 <?php
 
-use Taylor, Daniel\MaytapiChannel\Tests\TestCase;
+use dantaylorseo\MaytapiChannel\Tests\TestCase;
 
 uses(TestCase::class)->in(__DIR__);

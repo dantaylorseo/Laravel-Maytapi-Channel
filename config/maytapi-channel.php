@@ -1,6 +1,6 @@
 <?php
 
-// config for Taylor, Daniel/MaytapiChannel
+// config for dantaylorseo/MaytapiChannel
 return [
 
 ];

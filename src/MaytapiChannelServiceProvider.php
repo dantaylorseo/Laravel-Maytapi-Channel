@@ -4,7 +4,7 @@ namespace dantaylorseo\MaytapiChannel;
 
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Taylor, Daniel\MaytapiChannel\Commands\MaytapiChannelCommand;
+use dantaylorseo\MaytapiChannel\Commands\MaytapiChannelCommand;
 
 class MaytapiChannelServiceProvider extends PackageServiceProvider
 {

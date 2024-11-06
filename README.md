@@ -52,8 +52,8 @@ php artisan vendor:publish --tag="laravel-maytapi-channel-views"
 ## Usage
 
 ```php
-$maytapiChannel = new Taylor, Daniel\MaytapiChannel();
-echo $maytapiChannel->echoPhrase('Hello, Taylor, Daniel!');
+$maytapiChannel = new dantaylorseo\MaytapiChannel();
+echo $maytapiChannel->echoPhrase('Hello, dantaylorseo!');
 ```
 
 ## Testing
@@ -76,7 +76,7 @@ Please review [our security policy](../../security/policy) on how to report secu
 
 ## Credits
 
-- [Taylor, Daniel](https://github.com/dantaylorseo)
+- [dantaylorseo](https://github.com/dantaylorseo)
 - [All Contributors](../../contributors)
 
 ## License

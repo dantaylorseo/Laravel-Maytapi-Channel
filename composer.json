@@ -2,7 +2,7 @@
     "name": "dantaylorseo/laravel-maytapi-channel",
     "description": "This is my package laravel-maytapi-channel",
     "keywords": [
-        "Taylor, Daniel",
+        "dantaylorseo",
         "laravel",
         "laravel-maytapi-channel"
     ],
@@ -10,7 +10,7 @@
     "license": "MIT",
     "authors": [
         {
-            "name": "Taylor, Daniel",
+            "name": "dantaylorseo",
             "email": "dreubentaylor@gmail.com",
             "role": "Developer"
         }
@@ -34,13 +34,13 @@
     },
     "autoload": {
         "psr-4": {
-            "Taylor, Daniel\\MaytapiChannel\\": "src/",
-            "Taylor, Daniel\\MaytapiChannel\\Database\\Factories\\": "database/factories/"
+            "dantaylorseo\\MaytapiChannel\\": "src/",
+            "dantaylorseo\\MaytapiChannel\\Database\\Factories\\": "database/factories/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Taylor, Daniel\\MaytapiChannel\\Tests\\": "tests/",
+            "dantaylorseo\\MaytapiChannel\\Tests\\": "tests/",
             "Workbench\\App\\": "workbench/app/"
         }
     },
@@ -72,10 +72,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Taylor, Daniel\\MaytapiChannel\\MaytapiChannelServiceProvider"
+                "dantaylorseo\\MaytapiChannel\\MaytapiChannelServiceProvider"
             ],
             "aliases": {
-                "MaytapiChannel": "Taylor, Daniel\\MaytapiChannel\\Facades\\MaytapiChannel"
+                "MaytapiChannel": "dantaylorseo\\MaytapiChannel\\Facades\\MaytapiChannel"
             }
         }
     },
