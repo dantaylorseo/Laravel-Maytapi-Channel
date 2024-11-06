@@ -34,8 +34,7 @@
     },
     "autoload": {
         "psr-4": {
-            "dantaylorseo\\MaytapiChannel\\": "src/",
-            "dantaylorseo\\MaytapiChannel\\Database\\Factories\\": "database/factories/"
+            "dantaylorseo\\MaytapiChannel\\": "src/"
         }
     },
     "autoload-dev": {
@@ -73,10 +72,10 @@
         "laravel": {
             "providers": [
                 "dantaylorseo\\MaytapiChannel\\MaytapiChannelServiceProvider"
-            ],
-            "aliases": {
-                "MaytapiChannel": "dantaylorseo\\MaytapiChannel\\Facades\\MaytapiChannel"
-            }
+            ]
+        },
+        "branch-alias": {
+            "dev-main": "1.0.x-dev"
         }
     },
     "minimum-stability": "dev",
