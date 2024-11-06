@@ -2,7 +2,6 @@
 
 namespace dantaylorseo\MaytapiChannel;
 
-use dantaylorseo\MaytapiChannel\Commands\MaytapiChannelCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
