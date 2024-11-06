@@ -1,6 +1,6 @@
 <?php
 
-namespace Taylor, Daniel\MaytapiChannel\Commands;
+namespace dantaylorseo\MaytapiChannel\Commands;
 
 use Illuminate\Console\Command;
 

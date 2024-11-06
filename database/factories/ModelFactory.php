@@ -1,6 +1,6 @@
 <?php
 
-namespace Taylor, Daniel\MaytapiChannel\Database\Factories;
+namespace dantaylorseo\MaytapiChannel\Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 

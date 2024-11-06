@@ -1,6 +1,6 @@
 <?php
 
-namespace Taylor, Daniel\MaytapiChannel\Facades;
+namespace dantaylorseo\MaytapiChannel\Facades;
 
 use Illuminate\Support\Facades\Facade;
 

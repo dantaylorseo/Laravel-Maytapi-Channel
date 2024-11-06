@@ -1,6 +1,6 @@
 <?php
 
-namespace Taylor, Daniel\MaytapiChannel\Tests;
+namespace dantaylorseo\MaytapiChannel\Tests;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;

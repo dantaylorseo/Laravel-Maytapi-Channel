@@ -1,5 +1,5 @@
 <?php
 
-namespace Taylor, Daniel\MaytapiChannel;
+namespace dantaylorseo\MaytapiChannel;
 
 class MaytapiChannel {}

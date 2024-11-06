@@ -1,6 +1,6 @@
 <?php
 
-namespace Taylor, Daniel\MaytapiChannel;
+namespace dantaylorseo\MaytapiChannel;
 
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
