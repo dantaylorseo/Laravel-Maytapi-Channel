@@ -18,4 +18,23 @@ class MaytapiChannelServiceProvider extends PackageServiceProvider
             ->name('laravel-maytapi-channel')
             ->hasConfigFile();
     }
+
+    public function bootingPackage(): void
+    {
+        $this->app->when(MaytapiService::class)
+            ->needs('$apiKey')
+            ->give(config('maytapi-channel.api_key'));
+
+        $this->app->when(MaytapiService::class)
+            ->needs('$packageId')
+            ->give(config('maytapi-channel.package_id'));
+
+        $this->app->when(MaytapiService::class)
+            ->needs('$phoneId')
+            ->give(config('maytapi-channel.phone_id'));
+
+        $this->app->when(MaytapiChannel::class)
+            ->needs('$groupId')
+            ->give(config('maytapi-channel.group_id'));
+    }
 }
