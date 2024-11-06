@@ -25,15 +25,35 @@ class MaytapiService
 
     public function send(bool $sendToGroup, string $phoneNumber, MaytapiMessage $message): void
     {
+
+        $messageData = $this->buildMessage($message);
+
         $response = Http::withHeaders([
             'x-maytapi-key' => $this->apiKey,
         ])->post("https://api.maytapi.com/api/{$this->productId}/{$this->phoneId}/sendMessage", [
             'to_number' => $sendToGroup ? $this->groupId : $phoneNumber,
-            'type' => 'text',
-            'message' => $message,
+            'type' => $messageData['type'],
+            'message' => $messageData['text'],
         ]);
 
         Log::info('Response: '.$response->body());
+
+    }
+
+    private function buildMessage(MaytapiMessage $message): array
+    {
+        $type = 'message';
+        $text = implode("\n\n", $message->introLines);
+        if ($message->actionText) {
+            $link = $message->actionUrl;
+            $text .= "\n\n".$message->actionUrl;
+        }
+        $text .= implode("\n\n", $message->outroLines);
+
+        return [
+            'type' => $type,
+            'text' => $text,
+        ];
 
     }
 }
