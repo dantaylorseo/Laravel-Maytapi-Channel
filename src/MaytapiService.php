@@ -24,7 +24,7 @@ class MaytapiService
         $this->groupId = $groupId;
     }
 
-    public function send(bool $sendToGroup, string|null $phoneNumber, MailMessage $message): void
+    public function send(bool $sendToGroup, ?string $phoneNumber, MailMessage $message): void
     {
 
         $messageData = $this->buildMessage($message);
