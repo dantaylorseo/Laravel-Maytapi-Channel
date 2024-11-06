@@ -32,7 +32,7 @@ class MaytapiService
             'x-maytapi-key' => $this->apiKey,
         ])->post("https://api.maytapi.com/api/{$this->productId}/{$this->phoneId}/sendMessage", [
             'to_number' => $sendToGroup ? $this->groupId : $phoneNumber,
-            'type' => $messageData['type'],
+            'type' => $messageData['link'] ? 'link' : 'text',
             'link' => $messageData['link'] ?? null,
             'message' => $messageData['text'],
         ]);
@@ -43,8 +43,8 @@ class MaytapiService
 
     private function buildMessage(MaytapiMessage $message): array
     {
-        $type = 'text';
         $text = implode("\n\n", $message->introLines);
+        $link = null;
         if ($message->actionText) {
             $link = $message->actionUrl;
             $text .= "\n\n".$message->actionUrl;
@@ -52,7 +52,7 @@ class MaytapiService
         $text .= implode("\n\n", $message->outroLines);
 
         return [
-            'type' => $type,
+            'link' => $link,
             'text' => $text,
         ];
 
