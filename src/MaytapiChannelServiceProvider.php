@@ -17,9 +17,6 @@ class MaytapiChannelServiceProvider extends PackageServiceProvider
          */
         $package
             ->name('laravel-maytapi-channel')
-            ->hasConfigFile()
-            ->hasViews()
-            ->hasMigration('create_laravel_maytapi_channel_table')
-            ->hasCommand(MaytapiChannelCommand::class);
+            ->hasConfigFile();
     }
 }
