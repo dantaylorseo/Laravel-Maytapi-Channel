@@ -2,15 +2,16 @@
 
 namespace dantaylorseo\MaytapiChannel;
 
-use Illuminate\Http\Client\ConnectionException;
 use Illuminate\Support\Facades\Http;
 
 class MaytapiService
 {
-
     protected string $apiKey;
+
     protected string $packageId;
+
     protected string $phoneId;
+
     protected string $groupId;
 
     public function __construct(string $apiKey, string $packageId, string $phoneId, string $groupId)
@@ -26,9 +27,9 @@ class MaytapiService
         $response = Http::withHeaders([
             'x-maytapi-key' => $this->apiKey,
         ])->post("https://api.maytapi.com/api/{$this->packageId}/[$this->phoneId]/sendMessage", [
-            "to_number" => "{$this->groupId}",
-            "type" => "text",
-            "message" => $message
+            'to_number' => "{$this->groupId}",
+            'type' => 'text',
+            'message' => $message,
         ]);
 
     }
