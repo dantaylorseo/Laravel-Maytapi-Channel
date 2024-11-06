@@ -33,7 +33,7 @@ class MaytapiService
             'message' => $message,
         ]);
 
-        Log::info('Response: ' . $response->body());
+        Log::info('Response: '.$response->body());
 
     }
 }

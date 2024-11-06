@@ -3,7 +3,6 @@
 namespace dantaylorseo\MaytapiChannel;
 
 use Illuminate\Notifications\Notification;
-use Illuminate\Support\Facades\Log;
 
 class MaytapiChannel
 {
