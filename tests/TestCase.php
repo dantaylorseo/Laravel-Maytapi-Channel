@@ -2,9 +2,9 @@
 
 namespace dantaylorseo\MaytapiChannel\Tests;
 
+use dantaylorseo\MaytapiChannel\MaytapiChannelServiceProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
-use dantaylorseo\MaytapiChannel\MaytapiChannelServiceProvider;
 
 class TestCase extends Orchestra
 {
