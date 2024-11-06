@@ -35,7 +35,7 @@ class MaytapiService
             'to_number' => $sendToGroup ? $this->groupId : $phoneNumber,
             'type' => 'text',
             'message' => $messageData['text'],
-            "skip_filter" => true
+            'skip_filter' => true,
         ]);
 
         Log::info('Response: '.$response->body());
