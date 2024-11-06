@@ -42,7 +42,7 @@ class MaytapiService
 
     private function buildMessage(MaytapiMessage $message): array
     {
-        $type = 'message';
+        $type = 'text';
         $text = implode("\n\n", $message->introLines);
         if ($message->actionText) {
             $link = $message->actionUrl;
