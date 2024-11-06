@@ -39,8 +39,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "dantaylorseo\\MaytapiChannel\\Tests\\": "tests/",
-            "Workbench\\App\\": "workbench/app/"
+            "dantaylorseo\\MaytapiChannel\\Tests\\": "tests/"
         }
     },
     "scripts": {
@@ -48,8 +47,7 @@
         "clear": "@php vendor/bin/testbench package:purge-laravel-maytapi-channel --ansi",
         "prepare": "@php vendor/bin/testbench package:discover --ansi",
         "build": [
-            "@composer run prepare",
-            "@php vendor/bin/testbench workbench:build --ansi"
+            "@composer run prepare"
         ],
         "start": [
             "Composer\\Config::disableProcessTimeout",
