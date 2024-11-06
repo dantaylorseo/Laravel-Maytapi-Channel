@@ -23,7 +23,7 @@ class MaytapiService
         $this->groupId = $groupId;
     }
 
-    public function send(bool $sendToGroup, string $phoneNumber, string $message): void
+    public function send(bool $sendToGroup, string $phoneNumber, MaytapiMessage $message): void
     {
         $response = Http::withHeaders([
             'x-maytapi-key' => $this->apiKey,
