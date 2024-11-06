@@ -33,7 +33,7 @@ class MaytapiChannelServiceProvider extends PackageServiceProvider
             ->needs('$phoneId')
             ->give(config('maytapi-channel.phone_id'));
 
-        $this->app->when(MaytapiChannel::class)
+        $this->app->when(MaytapiService::class)
             ->needs('$groupId')
             ->give(config('maytapi-channel.group_id'));
     }
