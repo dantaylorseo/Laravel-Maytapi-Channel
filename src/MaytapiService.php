@@ -2,6 +2,7 @@
 
 namespace dantaylorseo\MaytapiChannel;
 
+use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
 
@@ -23,7 +24,7 @@ class MaytapiService
         $this->groupId = $groupId;
     }
 
-    public function send(bool $sendToGroup, string $phoneNumber, MaytapiMessage $message): void
+    public function send(bool $sendToGroup, string $phoneNumber, MailMessage $message): void
     {
 
         $messageData = $this->buildMessage($message);
@@ -41,7 +42,7 @@ class MaytapiService
 
     }
 
-    private function buildMessage(MaytapiMessage $message): array
+    private function buildMessage(MailMessage $message): array
     {
         $text = implode("\n\n", $message->introLines);
         $link = null;
