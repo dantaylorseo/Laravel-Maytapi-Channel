@@ -47,7 +47,7 @@ class MaytapiService
         $link = null;
         if ($message->actionText) {
             $link = $message->actionUrl;
-            $text .= "\n\n".$message->actionUrl."\n\n";
+            $text .= "\n\n".$message->actionUrl."\n(".$message->actionText.")\n\n";
         }
         $text .= implode("\n\n", $message->outroLines);
 
