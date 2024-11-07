@@ -19,7 +19,8 @@ class MaytapiChannel
     public function send(object $notifiable, Notification $notification): void
     {
         $group = config('maytapi-channel.send_to_channel');
-        if (! $group && ! $phoneNumber = $notifiable->routeNotificationFor('maytapi', $notification)) {
+        $group_id = config('maytapi-channel.group_id');
+        if (($group && ! $group_id) || (! $group && ! $phoneNumber = $notifiable->routeNotificationFor('maytapi', $notification))) {
             return;
         }
 
