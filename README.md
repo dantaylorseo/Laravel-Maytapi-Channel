@@ -6,6 +6,7 @@ This package provides a notification channel for [Laravel](https://laravel.com) 
 [![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/dantaylorseo/Laravel-Maytapi-Channel/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/dantaylorseo/laravel-maytapi-channel/actions?query=workflow%3Arun-tests+branch%3Amain)
 [![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/dantaylorseo/Laravel-Maytapi-Channel/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/dantaylorseo/laravel-maytapi-channel/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
 [![Total Downloads](https://img.shields.io/packagist/dt/dantaylorseo/Laravel-Maytapi-Channel.svg?style=flat-square)](https://packagist.org/packages/dantaylorseo/laravel-maytapi-channel)
+[![Packagist License](https://img.shields.io/packagist/l/dantaylorseo/laravel-maytapi-channel?style=flat-square&color=purple)](LICENSE.md)
 
 ## Installation
 
