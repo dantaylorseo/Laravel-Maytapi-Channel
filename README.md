@@ -1,4 +1,6 @@
-# This is my package laravel-maytapi-channel
+# Mytapi Laravel Notification Channel
+
+This package provides a notification channel for [Laravel](https://laravel.com) that sends WhatsApp messages using the [Maytapi](https://maytapi.com) API.
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/dantaylorseo/Laravel-Maytapi-Channel.svg?style=flat-square)](https://packagist.org/packages/dantaylorseo/laravel-maytapi-channel)
 [![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/dantaylorseo/Laravel-Maytapi-Channel/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/dantaylorseo/laravel-maytapi-channel/actions?query=workflow%3Arun-tests+branch%3Amain)
@@ -26,61 +28,23 @@ return [
     'api_key' => env('MAYTAPI_API_KEY'),
     'product_id' => env('MAYTAPI_PRODUCT_ID'),
     'phone_id' => env('MAYTAPI_PHONE_ID'),
-    'group_id' => env('MAYTAPI_GROUP_ID'),
+    'send_to_channel' => env('MAYTAPI_SEND_TO_CHANNEL', false), // if set to true, messages will be sent to the channel instead of the user
+    'group_id' => env('MAYTAPI_GROUP_ID'), // if the message is being sent to a group, this is the group ID
 ];
 ```
 
 ## Usage
 
-Your notification class should look something like:
+This channel uses the `toMail()` method on the notification class to determine the outgoing message. `line()` and `action()` methods are supported.
+
 ```php
-<?php
 
-namespace App\Notifications;
+To set the phone number to send the message to, add the `routeNotificationForMaytapi` method to your `Notifiable` model.
 
-use dantaylorseo\MaytapiChannel\MaytapiChannel;
-use Illuminate\Bus\Queueable;
-use Illuminate\Notifications\Messages\MailMessage;
-use Illuminate\Notifications\Notification;
-
-class WebpageChangedNotification extends Notification
+```php
+public function routeNotificationForMaytapi()
 {
-    use Queueable;
-
-    /**
-     * Create a new notification instance.
-     */
-    public function __construct()
-    {
-        //
-    }
-
-    /**
-     * Get the notification's delivery channels.
-     *
-     * @return array<int, string>
-     */
-    public function via(object $notifiable): array
-    {
-        return [
-            'mail',
-            MaytapiChannel::class
-        ];
-    }
-    
-    // Other parts of class here
-
-    /**
-     * Get the WhatsApp representation of the notification.
-     *
-     * @param object $notifiable
-     * @return string
-     *//
-    public function toWhatsApp(object $notifiable): string
-    {
-        return "This is the message that will be sent to the user via WhatsApp!";
-    }
-
+    return $this->phone_number; // in the format 447123456789 (country code followed by the number, no leading 0, no spaces)
 }
 ```
 
