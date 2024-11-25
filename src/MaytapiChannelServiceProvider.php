@@ -36,5 +36,14 @@ class MaytapiChannelServiceProvider extends PackageServiceProvider
         $this->app->when(MaytapiService::class)
             ->needs('$groupId')
             ->give(config('maytapi-channel.group_id'));
+
+        $this->app->bind('maytapi', function () {
+            return new MaytapiService(
+                config('maytapi-channel.api_key'),
+                config('maytapi-channel.product_id'),
+                config('maytapi-channel.phone_id'),
+                config('maytapi-channel.group_id')
+            );
+        });
     }
 }
