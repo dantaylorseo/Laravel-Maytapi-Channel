@@ -3,6 +3,7 @@
 namespace dantaylorseo\MaytapiChannel;
 
 use Illuminate\Notifications\Notification;
+use Illuminate\Support\Facades\Log;
 
 class MaytapiChannel
 {
@@ -20,12 +21,22 @@ class MaytapiChannel
     {
         $group = config('maytapi-channel.send_to_channel');
         $group_id = config('maytapi-channel.group_id');
-        if (($group && ! $group_id) || (! $group && ! $phoneNumber = $notifiable->routeNotificationFor('maytapi', $notification))) {
+        $phoneNumber = $notifiable->routeNotificationFor('maytapi', $notification);
+        
+        if (($group && ! $group_id) || (! $group && ! $phoneNumber)) {
             return;
         }
 
         // @phpstan-ignore method.notFound
         $message = $notification->toMail($notifiable);
-        $this->service->send($group, $phoneNumber ?? null, $message);
+        try {
+            if ($group) {
+                $this->service->sendToGroup($message);
+            } elseif($phoneNumber) {
+                $this->service->sendToNumber($phoneNumber, $message);
+            }
+        } catch (\Exception $e) {
+           Log::error('MaytapiChannel: ' . $e->getMessage());
+        }
     }
 }
