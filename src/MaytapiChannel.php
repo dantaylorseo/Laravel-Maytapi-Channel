@@ -22,7 +22,7 @@ class MaytapiChannel
         $group = config('maytapi-channel.send_to_channel');
         $group_id = config('maytapi-channel.group_id');
         $phoneNumber = $notifiable->routeNotificationFor('maytapi', $notification);
-        
+
         if (($group && ! $group_id) || (! $group && ! $phoneNumber)) {
             return;
         }
@@ -32,11 +32,11 @@ class MaytapiChannel
         try {
             if ($group) {
                 $this->service->sendToGroup($message);
-            } elseif($phoneNumber) {
+            } elseif ($phoneNumber) {
                 $this->service->sendToNumber($phoneNumber, $message);
             }
         } catch (\Exception $e) {
-           Log::error('MaytapiChannel: ' . $e->getMessage());
+            Log::error('MaytapiChannel: '.$e->getMessage());
         }
     }
 }

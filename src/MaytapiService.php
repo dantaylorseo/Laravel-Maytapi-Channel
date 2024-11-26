@@ -25,14 +25,10 @@ class MaytapiService
     }
 
     /**
-     *
      * Send a message to a phone number.
      * Message can be a string or a MailMessage object. If it is a string, it will be converted to a MailMessage object.
      * Each new line (\n) of the string will be a line in the message.
      *
-     * @param  string  $phoneNumber
-     * @param  MailMessage|string  $message
-     * @return void
      * @throws \Illuminate\Http\Client\ConnectionException
      */
     public function sendToNumber(string $phoneNumber, MailMessage|string $message): void
@@ -41,13 +37,10 @@ class MaytapiService
     }
 
     /**
-     *
      * Send a message to a group.
      * Message can be a string or a MailMessage object. If it is a string, it will be converted to a MailMessage object.
      * Each new line (\n) of the string will be a line in the message.
      *
-     * @param  MailMessage|string  $message
-     * @return void
      * @throws \Illuminate\Http\Client\ConnectionException
      */
     public function sendToGroup(MailMessage|string $message): void
@@ -56,15 +49,10 @@ class MaytapiService
     }
 
     /**
-     *
      * Send a message to a phone number or a group.
      * Message can be a string or a MailMessage object. If it is a string, it will be converted to a MailMessage object.
      * Each new line (\n) of the string will be a line in the message.
      *
-     * @param  bool  $sendToGroup
-     * @param  string|null  $phoneNumber
-     * @param  MailMessage|string  $message
-     * @return void
      * @throws \Illuminate\Http\Client\ConnectionException
      */
     private function send(bool $sendToGroup, ?string $phoneNumber, MailMessage|string $message): void
@@ -72,7 +60,7 @@ class MaytapiService
 
         if (is_string($message)) {
             $lines = explode("\n", $message);
-            $message = new MailMessage();
+            $message = new MailMessage;
             foreach ($lines as $line) {
                 $message->line($line);
             }
