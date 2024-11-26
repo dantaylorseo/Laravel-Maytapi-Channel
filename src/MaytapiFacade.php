@@ -4,6 +4,9 @@ namespace dantaylorseo\MaytapiChannel;
 
 use Illuminate\Support\Facades\Facade;
 
+/**
+ * @mixin MaytapiService
+ */
 class MaytapiFacade extends Facade
 {
     /**
